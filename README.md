@@ -30,3 +30,4 @@ https://docs.microsoft.com/en-us/sysinternals/downloads/procmon
 https://live.sysinternals.com/
 https://github.com/foxglovesec/Potato
 https://github.com/GhostPack/SharpUp
+# privesc-go-bag
